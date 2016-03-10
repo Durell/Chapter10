@@ -18,24 +18,50 @@ main class - Numbers
 */
 
 // imports
-import java.util.Scanner;
+import java.util.*;   //includes Scanner
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 
 public class Numbers
 {
-	// variables
-
-	/**
-	* Default Constructor
-	*/
-	public Numbers()
-	{
-	}
-
-	// accessor and mutator methods
-
 	// main method
 	public static void main(String[] args)
 	{
+    Scanner userInput = new Scanner(System.in);
+    PrintWriter ouputTxtStream = null;
+    String fileName = "";
+
+    System.out.print("Please give me the name of the text file to read from. > ");
+    fileName = userInput.nextLine();
+    try
+    {
+      txtFileStream = new Scanner(new FileInputStream(fileName));
+    }
+    catch(FileNotFoundException e)
+    {
+      System.out.println("File " + fileName + " was not found");
+      System.out.println("or could not be opened");
+      System.exit(0);
+    }
+
+    System.out.print("Please give me the name of the text file to write to. > ");
+    fileName = userInput.nextLine();
+    try
+    {
+      outputTxtStream = new PrintWriter(new FileOutputStream(fileName));
+    }
+    catch(FileNotFoundException e)
+    {
+      System.out.println("File " + fileName + " was not found");
+      System.out.println("or could not be opened");
+      System.exit(0);
+    }
+
+    
+
 	} // end main method
 
 } // end Numbers class
