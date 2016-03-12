@@ -24,7 +24,7 @@ public class ReadWritePets
     Scanner txtFileStream = null;
     String userResponse = "";
 
-    System.out.print("Would you like to read or write a file?);
+    System.out.print("Would you like to read or write a file?");
     userResponse = userInput.nextLine();
 
     System.out.print("Please give me the text file name. > ");
