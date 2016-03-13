@@ -1,5 +1,5 @@
 /*
-Chapter No. 10 - Handout 2 Exercise 1
+Chapter No. 10 - Handout 2 Project 1
 File Name:          Numbers.java
 Programmer:         Durell Smith
 Date Last Modified: February 9, 2016
