@@ -9,28 +9,39 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
 
 public class Fun
 {
 	public static void main(String[] args)
 	{
-		String[] lines = new String[10];
-		String check = "";
-		int nLines = 0;
+    Scanner keyboard = new Scanner(System.in);
+    System.out.println("Please give me a file name to read from.");
+    String fileName = keyboard.nextLine();
+    File fileObject = new File(fileName);
+
+    while(!fileObject.exists())
+    {
+      System.out.println("No file named: " + fileName);
+      System.out.println("Please give me a valid file name: ");
+      fileName = keyboard.nextLine();
+      fileObject = new File(fileName);
+    }
+
 		try
 		{
-			BufferedReader fileIn = new BufferedReader(new FileReader("joe.txt"));
-			while (check != null)
+			BufferedReader fileIn = new BufferedReader(new FileReader(fileObject));
+		  String[] lines = new String[10];
+		  int nLines = 0;
+      lines[nLines] = fileIn.readLine();
+			while (lines[nLines] != null)
 			{
-				check = fileIn.readLine();
-				if (check != null)
-				{	
-					lines[nLines] = check; 
-					nLines++;
-				}
+			  nLines++;
+			  lines[nLines] = fileIn.readLine(); 
 			}
 			fileIn.close();
-			for (int i = 0; i < nLines-1; i++)
+			for (int i = 0; i < nLines; i++)
 			{
 				System.out.println(lines[i]);
 			}
