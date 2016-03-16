@@ -1,7 +1,9 @@
 /***
  Class for basic pet records: name, age, and weight.
 */
-public class PetRecord
+import java.io.Serializable;
+
+public class PetRecord implements Serializable
 {
     private String name;
     private int age;         //in years
@@ -125,6 +127,11 @@ public class PetRecord
     public double getWeight()
     {
         return weight;
+    }
+    
+    public String toString()
+    {
+      return ("name: " + name + " age: " + age + " weighs: " + weight + "lbs.");
     }
 }
 
